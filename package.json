@@ -1,0 +1,42 @@
+{
+  "name": "mytemplate",
+  "version": "1.0.0",
+  "description": "Creatingmytemplate",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "AutoTest": "jest --watch *.js",
+    "jestToES6": "npm install --save-dev babel-jest @babel/core @babel/preset-env",
+    "installWebpack": "npm install --save-dev webpack webpack-cli webpack-dev-server html-webpack-plugin html-loader css-loader style-loader ",
+    "installESLint": "npm init @eslint/config@latest",
+    "installPrettier": "npm install --save-dev --save-exact prettier",
+    "installJest": "npm install --save-dev jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sirjandeep-Singh/MyTemplate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sirjandeep-Singh/MyTemplate/issues"
+  },
+  "homepage": "https://github.com/Sirjandeep-Singh/MyTemplate#readme",
+  "devDependencies": {
+    "@babel/core": "^7.28.5",
+    "@babel/preset-env": "^7.28.5",
+    "babel-jest": "^30.2.0",
+    "css-loader": "^7.1.2",
+    "eslint": "^9.38.0",
+    "globals": "^16.4.0",
+    "html-loader": "^5.1.0",
+    "html-webpack-plugin": "^5.6.4",
+    "jest": "^30.2.0",
+    "prettier": "3.6.2",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.102.1",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
+  }
+}
