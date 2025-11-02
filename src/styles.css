@@ -1,38 +1,39 @@
-.body, :root{
-    margin : 0px;
-    height: 100vh;
+.body,
+:root {
+  margin: 0px;
+  height: 100vh;
 }
 
-.board{
-    display: flex;
-    gap: 20px;
-    justify-content: space-around;
+.board {
+  display: flex;
+  gap: 20px;
+  justify-content: space-around;
 }
 
-.grid{
-    display: grid;
-    grid-template: repeat(15,1fr)/repeat(15,1fr);
+.grid {
+  display: grid;
+  grid-template: repeat(15, 1fr) / repeat(15, 1fr);
 }
 
-.block{
-    border:1px solid rgb(102, 98, 98);
-    margin: 0px;
-    width: 2rem;
-    height: 2rem;
+.block {
+  border: 1px solid rgb(102, 98, 98);
+  margin: 0px;
+  width: 2rem;
+  height: 2rem;
 }
 
-.ship{
-    background-color: rgb(102, 102, 212);
+.ship {
+  background-color: rgb(102, 102, 212);
 }
 
-.miss{
-    background-color: gray;
+.miss {
+  background-color: gray;
 }
 
-.hit{
-    background-color: orange;
+.hit {
+  background-color: orange;
 }
 
-.block:hover{
-    cursor: pointer;
+.block:hover {
+  cursor: pointer;
 }

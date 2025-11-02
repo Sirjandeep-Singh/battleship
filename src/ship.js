@@ -77,7 +77,7 @@ class Ship {
   }
 
   setDirection(Direction) {
-    if(Direction === undefined){
+    if (Direction === undefined) {
       const directions = ["north", "east", "south", "west"];
       const current = directions.indexOf(this.#direction);
       Direction = directions[(current + 1) % 4];
@@ -101,8 +101,9 @@ class Ship {
     const validity = this.#validatehit(x, y);
     const isVertical = this.#anchorX == this.#endX;
     if (validity) {
-
-      const index = isVertical ? Math.abs(y - this.#anchorY) : Math.abs(x - this.#anchorX);
+      const index = isVertical
+        ? Math.abs(y - this.#anchorY)
+        : Math.abs(x - this.#anchorX);
 
       this.#health[index] = false;
 
@@ -121,29 +122,41 @@ class Ship {
     );
   }
 
-  isSunk(){
-    for(hits of this.#health){
-        if(hits == true) return false;
+  isSunk() {
+    for (let hits of this.#health) {
+      if (hits == true) return false;
     }
     return true;
   }
 
-  occupied(){
+  occupied() {
     let occupied = [];
     const isVertical = this.#anchorX === this.#endX;
-    if(isVertical){
-        for(let i = Math.min(this.#anchorY, this.#endY); i <= Math.max(this.#anchorY, this.#endY); i++){
+    if (isVertical) {
+      for (
+        let i = Math.min(this.#anchorY, this.#endY);
+        i <= Math.max(this.#anchorY, this.#endY);
+        i++
+      ) {
         occupied.push([this.#anchorX, i]);
-        }
-    }else{
-        for(let i = Math.min(this.#anchorX, this.#endX); i <= Math.max(this.#anchorX, this.#endX); i++){
+      }
+    } else {
+      for (
+        let i = Math.min(this.#anchorX, this.#endX);
+        i <= Math.max(this.#anchorX, this.#endX);
+        i++
+      ) {
         occupied.push([i, this.#anchorY]);
-        }
+      }
     }
     return occupied;
   }
 
-  willOccupyXY(x = this.#anchorX, y = this.#anchorY, direction = this.#direction){
+  willOccupyXY(
+    x = this.#anchorX,
+    y = this.#anchorY,
+    direction = this.#direction,
+  ) {
     let willOccupy = [];
     let finalX, finalY;
     if (direction === "north") {
@@ -160,28 +173,27 @@ class Ship {
       finalY = y + (this.#length - 1);
     }
 
-    const isVertical = direction === 'north' || direction == 'south';
+    const isVertical = direction === "north" || direction == "south";
 
-    if(isVertical){
-        for(let i = Math.min(y, finalY); i <= Math.max(y, finalY); i++){
+    if (isVertical) {
+      for (let i = Math.min(y, finalY); i <= Math.max(y, finalY); i++) {
         willOccupy.push([x, i]);
-        }
-    }else{
-        for(let i = Math.min(x, finalX); i <= Math.max(x,  finalX); i++){
+      }
+    } else {
+      for (let i = Math.min(x, finalX); i <= Math.max(x, finalX); i++) {
         willOccupy.push([i, y]);
-        }
+      }
     }
     return willOccupy;
-
   }
 
-  willOccupyDir( direction, x = this.#anchorX, y = this.#anchorY){
-    if(direction === undefined){
+  willOccupyDir(direction, x = this.#anchorX, y = this.#anchorY) {
+    if (direction === undefined) {
       const directions = ["north", "east", "south", "west"];
       const current = directions.indexOf(this.#direction);
       direction = directions[(current + 1) % 4];
     }
-    
+
     let willOccupy = [];
     let finalX, finalY;
     if (direction === "north") {
@@ -198,20 +210,19 @@ class Ship {
       finalY = y + (this.#length - 1);
     }
 
-    const isVertical = direction === 'north' || direction === 'south';
+    const isVertical = direction === "north" || direction === "south";
 
-    if(isVertical){
-        for(let i = Math.min(y, finalY); i <= Math.max(y, finalY); i++){
+    if (isVertical) {
+      for (let i = Math.min(y, finalY); i <= Math.max(y, finalY); i++) {
         willOccupy.push([x, i]);
-        }
-    }else{
-        for(let i = Math.min(x, finalX); i <= Math.max(x,  finalX); i++){
+      }
+    } else {
+      for (let i = Math.min(x, finalX); i <= Math.max(x, finalX); i++) {
         willOccupy.push([i, y]);
-        }
+      }
     }
     return willOccupy;
-
   }
 }
 
-export default Ship ;
+export default Ship;
